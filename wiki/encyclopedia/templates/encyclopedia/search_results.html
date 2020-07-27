@@ -1,0 +1,31 @@
+
+
+
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+{% autoescape off %}
+<section>
+    <div style="text-align: left; padding-top: 20px;">
+        <ul>
+            {% for result in results %}
+                <li>
+                    <a href="/wiki/{{result}}"> 
+                        {{ result }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+       
+    </div>
+    
+</section>
+
+    
+    
+{% endautoescape %}
+{% endblock %}

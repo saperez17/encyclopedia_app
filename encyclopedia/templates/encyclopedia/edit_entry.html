@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+{% autoescape off %}
+    <form class="form-group" method="GET" action="{% url 'encyclopedia:wiki_ini' %}">
+        {% csrf_token %}
+        <label>{{title}}</label>
+        <input hidden type="text" name='title' class="form-control" value="{{title}}">
+        <textarea class="form-control" rows="4" name="content" >{{content}}</textarea>
+        <button style="margin-top: 10px;" type="submit" class="btn btn-primary">Save</button>    
+    </form>
+    
+    
+{% endautoescape %}
+{% endblock %}

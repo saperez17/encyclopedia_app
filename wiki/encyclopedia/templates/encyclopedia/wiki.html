@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+{% autoescape off %}
+    {{content}}
+    <form class="form-group" method="POST" action="{% url 'encyclopedia:edit_entry' %}">
+        {% csrf_token %}
+        <input hidden type="text" name='title' class="form-control" value="{{title}}">
+        <button type="submit" class="btn btn-primary">Edit</button>    
+    </form>
+    
+    
+{% endautoescape %}
+{% endblock %}
